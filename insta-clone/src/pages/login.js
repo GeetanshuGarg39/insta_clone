@@ -1,13 +1,13 @@
 import Card from "../../components/Card"
 import Button from "../../components/Button"
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import pb from '..//..//components/lib/pocketbase';
 import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
 
 const login = () => {
-  const router =useRouter()
-  const {register,handleSubmit}= useForm();
+  const router =useRouter();
+  const {register,handleSubmit}=useForm();
   const [isLoading,setLoading]=useState(false);
   const [isLogged,setLogged]=useState(false);
 
@@ -32,8 +32,9 @@ const login = () => {
   return (
     <div className='flex flex-col justify-center items-center bg-slate-50 h-screen'>
       <Card>
+      <img src = "https://1000logos.net/wp-content/uploads/2017/02/Logo-Instagram-1.png " className=' h-1/2 ' ></img>
         <form onSubmit={handleSubmit(login)}>
-        <img src = "https://1000logos.net/wp-content/uploads/2017/02/Logo-Instagram-1.png " className=' h-1/2 w-3/4 ' ></img>
+        
         <input className=' border-2 rounded h-9 my-1 w-full bg-slate-50' placeholder='username' name="username" {...register('username')}></input>
         <input className=' border-2 rounded h-9 my-1 w-full bg-slate-50' type='password' placeholder='Password ' name='password' {...register('password')}></input>
         <Button type="submit" disabled={isLoading}>{isLoading? "Loading":"Login"}</Button>
